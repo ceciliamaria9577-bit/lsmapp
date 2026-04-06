@@ -10,9 +10,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wiwiiwiii.lsmapp.R
+import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
 
 @Composable
-fun StatsBar() {
+fun StatsBar(progressViewModel: ProgressViewModel) {
 
     Row(
         modifier = Modifier
@@ -26,7 +27,7 @@ fun StatsBar() {
 
         StatItem(icon = R.drawable.fire, value = "666")
         DividerVertical()
-        StatItem(icon = R.drawable.fish, value = "666")
+        StatItem(icon = R.drawable.fish, value = "${progressViewModel.points}")
         DividerVertical()
         StatItem(icon = R.drawable.statistics, value = "666")
     }

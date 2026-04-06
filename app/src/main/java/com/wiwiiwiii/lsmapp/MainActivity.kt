@@ -12,7 +12,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.wiwiiwiii.lsmapp.data.repository.LessonRepository
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,15 +32,16 @@ class MainActivity : ComponentActivity() {
 fun AppNavigation() {
 
     val navController = rememberNavController()
+    val progressViewModel: ProgressViewModel = viewModel()
 
-    // 🔥 Detectar pantalla actual
+    //  Detectar pantalla actual
     val currentRoute = navController
         .currentBackStackEntryAsState().value?.destination?.route
 
     Scaffold(
         bottomBar = {
 
-            // ✅ SOLO mostrar en estas pantallas
+            //  SOLO mostrar en estas pantallas
             if (currentRoute in listOf("home", "bookmark", "profile")) {
                 BottomNavBar(navController)
             }
@@ -59,11 +64,30 @@ fun AppNavigation() {
 
             composable("personalization") { PersonalizationScreen(navController) }
 
-            composable("home") { HomeScreen() }
-
+            composable("home") {
+                HomeScreen(
+                    navController = navController,
+                    progressViewModel = progressViewModel
+                )
+            }
             composable("bookmark") { BookmarkScreen() }
 
-            composable("profile") { ProfileScreen() }
+            composable("profile") { ProfileScreen(progressViewModel) }
+
+            composable("lesson/{id}") { backStackEntry ->
+
+                val context = LocalContext.current
+                val repo = LessonRepository(context)
+
+                val id = backStackEntry.arguments?.getString("id")!!.toInt()
+                val lesson = repo.getLessonById(id)
+
+                LessonScreen(
+                    lesson = lesson,
+                    navController = navController,
+                    progressViewModel = progressViewModel
+                )
+            }
         }
     }
 }

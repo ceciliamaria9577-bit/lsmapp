@@ -1,4 +1,4 @@
-package com.wiwiiwiii.lsmapp.model
+package com.wiwiiwiii.lsmapp.data.model
 
 data class Seccion(
     val id: Int,
@@ -9,6 +9,8 @@ data class Seccion(
 data class Tema(
     val id: Int,
     val titulo: String,
+    val lessonIds: List<Int>,
     val videoUrl: String? = null,
-    val imagen: Int? = null
+    val imagen: Int? = null,
+    var progress: Int = 0
 )

@@ -21,7 +21,7 @@ fun ProfileHeader() {
             .background(Color.LightGray)
     ) {
 
-        // Botones
+        //  Botones
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -32,12 +32,12 @@ fun ProfileHeader() {
             Icon(Icons.Default.Settings, contentDescription = null)
         }
 
-        // 👤 Avatar (placeholder)
+        //  Avatar (placeholder)
         Box(
             modifier = Modifier
                 .size(100.dp)
                 .align(Alignment.BottomCenter)
-                .offset(y = 50.dp) // 👈 sobresale hacia abajo
+                .offset(y = 50.dp)
                 .background(Color.Transparent, CircleShape)
         )
     }

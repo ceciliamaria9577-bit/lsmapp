@@ -6,10 +6,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
-import com.wiwiiwiii.lsmapp.model.Seccion
+import androidx.navigation.NavController
+import com.wiwiiwiii.lsmapp.data.model.Seccion
+import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
 
 @Composable
-fun SectionBlock(seccion: Seccion) {
+fun SectionBlock(
+    seccion: Seccion,
+    navController: NavController,
+    progressViewModel: ProgressViewModel,
+    unlockedLevel: Int,
+    nextLessonId: Int?
+) {
 
     Column {
 
@@ -34,12 +42,24 @@ fun SectionBlock(seccion: Seccion) {
             Spacer(modifier = Modifier.width(12.dp))
 
             Column {
-                seccion.temas.forEach {
-                    TemaCardExact(it)
+                seccion.temas.forEach { tema ->
+
+                    val completedLessonsInTema = tema.lessonIds.count {
+                        progressViewModel.isLessonCompleted(it)
+                    }
+
+                    TemaItem(
+                        tema = tema,
+                        navController = navController,
+                        progressViewModel = progressViewModel,
+                        progress = completedLessonsInTema,
+                        totalLessons = tema.lessonIds.size,
+                        isUnlocked = tema.id <= unlockedLevel,
+                        nextLessonId = nextLessonId
+                    )
                 }
             }
         }
-
         Spacer(modifier = Modifier.height(24.dp))
     }
 }

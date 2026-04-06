@@ -1,0 +1,91 @@
+[
+  {
+    "id": 1,
+    "title": "Saludos",
+    "steps": [
+      {
+        "type": "INTRO",
+        "text": "¡Hoy aprenderás saludos básicos!"
+      },
+      {
+        "type": "LEARN",
+        "title": "Hola",
+        "image": "hola_img"
+      },
+      {
+        "type": "LEARN",
+        "title": "Adiós",
+        "image": "adios_img"
+      },
+      {
+        "type": "QUIZ",
+        "question": "¿Qué seña es esta?",
+        "image": "hola_img",
+        "options": ["Hola", "Adiós"],
+        "correct": "Hola"
+      },
+      {
+        "type": "QUIZ",
+        "question": "¿Qué seña es esta?",
+        "image": "adios_img",
+        "options": ["Hola", "Adiós"],
+        "correct": "Adiós"
+      },
+      {
+        "type": "MATCH",
+        "pairs": [
+          { "word": "Hola", "image": "hola_img" },
+          { "word": "Adiós", "image": "adios_img" }
+        ]
+      },
+      {
+        "type": "RESULT"
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "title": "Saludos",
+    "steps": [
+      {
+        "type": "INTRO",
+        "text": "¡Hoy aprenderás saludos!"
+      },
+      {
+        "type": "LEARN",
+        "title": "Holajaaaa",
+        "image": "hola_img"
+      },
+      {
+        "type": "LEARN",
+        "title": "Adiós",
+        "image": "adios_img"
+      },
+      {
+        "type": "QUIZ",
+        "question": "¿Qué seña es esta?",
+        "image": "hola_img",
+        "options": ["Hola", "Adiós"],
+        "correct": "Hola"
+      },
+      {
+        "type": "QUIZ",
+        "question": "¿Qué seña es esta?",
+        "image": "adios_img",
+        "options": ["Hola", "Adiós"],
+        "correct": "Adiós"
+      },
+      {
+        "type": "MATCH",
+        "pairs": [
+          { "word": "Hola", "image": "hola_img" },
+          { "word": "Adiós", "image": "adios_img" }
+        ]
+      },
+      {
+        "type": "RESULT"
+      }
+    ]
+  }
+]

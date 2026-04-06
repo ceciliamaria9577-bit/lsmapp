@@ -9,10 +9,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.layout.ContentScale
 import com.wiwiiwiii.lsmapp.R
+import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
 
 
 @Composable
-fun TopBar() {
+fun TopBar(progressViewModel: ProgressViewModel){
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -28,7 +29,7 @@ fun TopBar() {
                 contentScale = ContentScale.Fit
             )
             Spacer(modifier = Modifier.width(4.dp))
-            Text("666")
+            Text("${progressViewModel.points}")
         }
 
         Row {

@@ -18,14 +18,14 @@ fun Timeline(total: Int) {
 
         repeat(total) { index ->
 
-            // 🔵 CÍRCULO
+            //  CÍRCULO
             Box(
                 modifier = Modifier
                     .size(12.dp)
                     .background(Color.LightGray, CircleShape)
             )
 
-            // 🔵 LÍNEA (menos el último nodo)
+            //  LÍNEA (menos el último nodo)
             if (index != total - 1) {
                 Box(
                     modifier = Modifier

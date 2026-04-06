@@ -17,10 +17,10 @@ import com.wiwiiwiii.lsmapp.ui.components.FriendItem
 import com.wiwiiwiii.lsmapp.ui.components.ProfileHeader
 import com.wiwiiwiii.lsmapp.ui.components.StatsBar
 import com.wiwiiwiii.lsmapp.ui.components.TabsSection
-
+import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(progressViewModel: ProgressViewModel) {
 
     var selectedTab by remember { mutableStateOf(0) }
 
@@ -35,7 +35,7 @@ fun ProfileScreen() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 180.dp) // 👈 CLAVE: baja el contenido
+                .padding(top = 180.dp)
                 .background(
                     Color(0xFFF2F2F2),
                     RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp)
@@ -55,7 +55,7 @@ fun ProfileScreen() {
                 Divider(modifier = Modifier.padding(vertical = 8.dp))
             }
 
-            StatsBar()
+            StatsBar(progressViewModel)
 
             Spacer(modifier = Modifier.height(16.dp)) // debajo del StatsBar
 
@@ -132,7 +132,7 @@ fun EstadisticasSection() {
             .padding(20.dp)
     ) {
 
-        // 🔹 GENERAL
+        //  GENERAL
         Text(
             "General",
             fontSize = 16.sp,
@@ -155,7 +155,7 @@ fun EstadisticasSection() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 🔹 CONOCIMIENTOS
+        //  CONOCIMIENTOS
         Text(
             "Conocimientos",
             fontSize = 16.sp,

@@ -32,14 +32,14 @@ fun LoginScreen(navController: NavController) {
             .background(Background)
     ) {
 
-        // 🔙 Flecha
+        //  Flecha
         IconButton(onClick = { navController.popBackStack() }) {
             Text("←", fontSize = 20.sp)
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        // 🧱 CONTENEDOR
+        //  CONTENEDOR
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -111,7 +111,7 @@ fun LoginScreen(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(15.dp))
 
-                // ── línea texto línea
+                //  Línea texto línea
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Divider(modifier = Modifier.weight(1f))
                     Text("  Iniciar sesión con  ", fontSize = 11.sp)
