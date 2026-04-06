@@ -145,7 +145,8 @@ fun LessonScreen(
                     "RESULT" -> ResultStep(
                         correctAnswers = correctAnswers,
                         totalQuestions = totalQuestions,
-                        startTime = startTime ?: System.currentTimeMillis(),                        onFinish = { navController.popBackStack()
+                        startTime = startTime ?: System.currentTimeMillis(),
+                        onFinish = { navController.popBackStack()
                         },
                         onLessonCompleted = {
                             progressViewModel.completeLesson(lesson.id)
@@ -359,7 +360,7 @@ fun QuizStep(
                         onAnswer(option == step.correct)
                     }
                 },
-                enabled = !answered, // ← esto bloquea visualmente también
+                enabled = !answered,
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = ButtonGray)
             ) {
@@ -457,9 +458,9 @@ fun MatchStep(
                         .size(180.dp)
                         .background(
                             when {
-                                isMatched -> Color(0xFFBDBDBD) // gris oscuro (correcto)
-                                isSelected -> Color(0xFFE0E0E0) // gris medio (selección)
-                                else -> Color(0xFFF5F5F5) // gris claro
+                                isMatched -> Color(0xFFBDBDBD)
+                                isSelected -> Color(0xFFE0E0E0)
+                                else -> Color(0xFFF5F5F5)
                             },
                             RoundedCornerShape(12.dp)
                         )
@@ -495,9 +496,9 @@ fun MatchStep(
                     modifier = Modifier
                         .background(
                             when {
-                                isMatched -> Color(0xFFBDBDBD) // gris oscuro
-                                isSelected -> Color(0xFFE0E0E0) // gris medio
-                                else -> Color(0xFFF5F5F5) // gris claro
+                                isMatched -> Color(0xFFBDBDBD)
+                                isSelected -> Color(0xFFE0E0E0)
+                                else -> Color(0xFFF5F5F5)
                             },
                             RoundedCornerShape(12.dp)
                         )

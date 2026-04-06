@@ -25,7 +25,7 @@ fun Timeline(total: Int) {
                     .background(Color.LightGray, CircleShape)
             )
 
-            //  LÍNEA (menos el último nodo)
+            //  LÍNEA
             if (index != total - 1) {
                 Box(
                     modifier = Modifier

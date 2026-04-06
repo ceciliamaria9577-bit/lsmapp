@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.ui.res.painterResource
@@ -12,7 +11,6 @@ import androidx.compose.ui.unit.dp
 import com.wiwiiwiii.lsmapp.R
 import com.wiwiiwiii.lsmapp.ui.theme.DarkGray
 import com.wiwiiwiii.lsmapp.ui.theme.LightGray
-import com.wiwiiwiii.lsmapp.ui.theme.PrimaryGray
 
 @Composable
 fun BottomNavBar(navController: NavController) {

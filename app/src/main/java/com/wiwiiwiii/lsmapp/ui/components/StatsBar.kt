@@ -18,9 +18,9 @@ fun StatsBar(progressViewModel: ProgressViewModel) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 24.dp) // más margen lateral
+            .padding(horizontal = 24.dp)
             .background(Color(0xFFD9D9D9), RoundedCornerShape(25.dp))
-            .padding(vertical = 16.dp), // más alto
+            .padding(vertical = 16.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {

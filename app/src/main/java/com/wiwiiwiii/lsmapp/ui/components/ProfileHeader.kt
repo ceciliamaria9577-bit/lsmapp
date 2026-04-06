@@ -32,7 +32,7 @@ fun ProfileHeader() {
             Icon(Icons.Default.Settings, contentDescription = null)
         }
 
-        //  Avatar (placeholder)
+        //  Avatar
         Box(
             modifier = Modifier
                 .size(100.dp)
