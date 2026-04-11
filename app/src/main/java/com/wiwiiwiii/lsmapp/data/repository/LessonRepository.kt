@@ -12,7 +12,7 @@ class LessonRepository(private val context: Context) {
 
     fun getLessons(): List<Lesson> = lessonList
 
-    fun getLessonById(id: Int): Lesson {
+    fun getLessonById(id: String): Lesson {
         return lessonList.first { it.id == id }
     }
 }

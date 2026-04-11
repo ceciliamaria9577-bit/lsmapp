@@ -9,8 +9,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.wiwiiwiii.lsmapp.R
-import com.wiwiiwiii.lsmapp.ui.theme.DarkGray
-import com.wiwiiwiii.lsmapp.ui.theme.LightGray
 
 @Composable
 fun BottomNavBar(navController: NavController) {
@@ -21,7 +19,9 @@ fun BottomNavBar(navController: NavController) {
         "profile"
     )
 
-    NavigationBar {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.background
+    ) {
 
         val backStackEntry = navController.currentBackStackEntryAsState()
         val currentRoute = backStackEntry.value?.destination?.route
@@ -33,16 +33,16 @@ fun BottomNavBar(navController: NavController) {
                 onClick = { navController.navigate(screen) },
 
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = DarkGray,
-                    unselectedIconColor = LightGray,
-                    indicatorColor = LightGray
+                    selectedIconColor = MaterialTheme.colorScheme.background,
+                    unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                    indicatorColor = MaterialTheme.colorScheme.onSurfaceVariant
                 ),
                 icon = {
                     when (screen) {
                         "home" -> Icon(
                             painter = painterResource(id = R.drawable.ic_home),
                             contentDescription = "Home",
-                            modifier = Modifier.size(36.dp)
+                            modifier = Modifier.size(36.dp),
                         )
                         "bookmark" -> Icon(
                             painter = painterResource(id = R.drawable.ic_bookmark),

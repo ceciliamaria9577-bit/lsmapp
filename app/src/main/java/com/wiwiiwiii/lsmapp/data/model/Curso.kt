@@ -9,7 +9,7 @@ data class Seccion(
 data class Tema(
     val id: Int,
     val titulo: String,
-    val lessonIds: List<Int>,
+    val lessonIds: List<String>,
     val videoUrl: String? = null,
     val imagen: Int? = null,
     var progress: Int = 0

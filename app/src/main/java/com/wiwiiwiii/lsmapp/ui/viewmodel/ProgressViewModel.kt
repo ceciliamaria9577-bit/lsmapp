@@ -5,30 +5,36 @@ import androidx.lifecycle.ViewModel
 
 class ProgressViewModel : ViewModel() {
 
-    var completedLessons by mutableStateOf(setOf<Int>())
+    var completedLessons by mutableStateOf(setOf<String>())
         private set
 
     var points by mutableStateOf(30)
         private set
 
-    fun completeLesson(lessonId: Int) {
+    //  COMPLETAR LECCIÓN
+    fun completeLesson(lessonId: String) {
         completedLessons = completedLessons + lessonId
     }
 
-    fun isLessonCompleted(lessonId: Int): Boolean {
+    //  OBTENER SIGUIENTE LECCIÓN (para desbloqueo)
+    fun getNextLessonId(lessonIds: List<String>): String? {
+        return lessonIds.firstOrNull { lessonId ->
+            lessonId !in completedLessons
+        }
+    }
+
+    fun isLessonCompleted(lessonId: String): Boolean {
         return lessonId in completedLessons
     }
 
-    fun getProgress(lessonId: Int): Int {
+    //  PROGRESO (0 o 1 por ahora)
+    fun getProgress(lessonId: String): Int {
         return if (lessonId in completedLessons) 1 else 0
     }
 
+    //  PUNTOS
     fun addPoints(amount: Int) {
         points += amount
         println("SUMANDO PUNTOS: +$amount → TOTAL: $points")
-    }
-
-    fun getNextLessonId(allLessons: List<Int>): Int? {
-        return allLessons.firstOrNull { it !in completedLessons }
     }
 }

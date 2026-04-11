@@ -16,6 +16,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.wiwiiwiii.lsmapp.data.repository.LessonRepository
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.wiwiiwiii.lsmapp.ui.auth.AuthChoiceScreen
+import com.wiwiiwiii.lsmapp.ui.auth.LoginScreen
+import com.wiwiiwiii.lsmapp.ui.auth.PersonalizationScreen
+import com.wiwiiwiii.lsmapp.ui.auth.RegisterScreen
+import com.wiwiiwiii.lsmapp.ui.auth.WelcomeScreen
+import com.wiwiiwiii.lsmapp.ui.home.HomeScreen
+import com.wiwiiwiii.lsmapp.ui.library.LibraryScreen
+import com.wiwiiwiii.lsmapp.ui.library.alphabet.AlphabetScreen
+import com.wiwiiwiii.lsmapp.ui.library.alphabet.LetterDetailScreen
+import com.wiwiiwiii.lsmapp.ui.profile.ProfileScreen
+import com.wiwiiwiii.lsmapp.ui.theme.LsmappTheme
 import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +34,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            AppNavigation()
+            LsmappTheme(darkTheme = false) {
+                AppNavigation()
+            }
         }
     }
 }
@@ -70,7 +83,11 @@ fun AppNavigation() {
                     progressViewModel = progressViewModel
                 )
             }
-            composable("bookmark") { BookmarkScreen() }
+            composable("bookmark") { LibraryScreen(navController) }
+
+            composable("alphabet") {
+                AlphabetScreen(navController)
+            }
 
             composable("profile") { ProfileScreen(progressViewModel) }
 
@@ -79,7 +96,7 @@ fun AppNavigation() {
                 val context = LocalContext.current
                 val repo = LessonRepository(context)
 
-                val id = backStackEntry.arguments?.getString("id")!!.toInt()
+                val id = backStackEntry.arguments?.getString("id")!!
                 val lesson = repo.getLessonById(id)
 
                 LessonScreen(
@@ -87,6 +104,11 @@ fun AppNavigation() {
                     navController = navController,
                     progressViewModel = progressViewModel
                 )
+            }
+
+            composable("letter_detail/{index}") { backStackEntry ->
+                val index = backStackEntry.arguments?.getString("index")?.toInt() ?: 0
+                LetterDetailScreen(navController, index)
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,7 +15,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.wiwiiwiii.lsmapp.ui.theme.FieldGray
 
 @Composable
 fun CustomInput(
@@ -27,15 +27,17 @@ fun CustomInput(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
-            .background(FieldGray, RoundedCornerShape(50))
-            .padding(horizontal = 16.dp, vertical = 10.dp)
+            .background(
+                color = MaterialTheme.colorScheme.background,
+                RoundedCornerShape(50))
+            .padding(horizontal = 24.dp, vertical = 10.dp)
     ) {
 
         Icon(
             painter = painterResource(id = icon),
             contentDescription = null,
-            modifier = Modifier.size(16.dp),
-            tint = Color.Gray
+            modifier = Modifier.size(18.dp),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         Spacer(modifier = Modifier.width(8.dp))
@@ -44,11 +46,11 @@ fun CustomInput(
             value = value,
             onValueChange = onValueChange,
             singleLine = true,
-            textStyle = TextStyle(fontSize = 12.sp),
+            textStyle = TextStyle(fontSize = 16.sp),
             modifier = Modifier.fillMaxWidth(),
             decorationBox = { innerTextField ->
                 if (value.isEmpty()) {
-                    Text(placeholder, fontSize = 12.sp, color = Color.Gray)
+                    Text(placeholder, fontSize = 16.sp, color = Color.Gray)
                 }
                 innerTextField()
             }
