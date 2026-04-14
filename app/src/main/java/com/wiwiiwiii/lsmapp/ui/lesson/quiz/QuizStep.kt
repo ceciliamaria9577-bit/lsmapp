@@ -38,7 +38,7 @@ fun QuizStep(
 ) {
 
     val shuffledOptions = remember(step) {
-        step.options?.shuffled()
+        (step.options ?: emptyList()).shuffled()
     }
 
     Column {
@@ -96,15 +96,18 @@ fun QuizStep(
                 onClick = {
                     if (!answered) {
                         answered = true
-                        onAnswer(option == step.correct)
+                        onAnswer(option.text == step.correct)
                     }
                 },
                 enabled = !answered,
                 modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSurface)
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.onSurface
+                )
             ) {
-                Text(option, fontSize = 24.sp)
+                Text(option.text ?: "", fontSize = 24.sp)
             }
+
             Spacer(Modifier.height(8.dp))
         }
     }

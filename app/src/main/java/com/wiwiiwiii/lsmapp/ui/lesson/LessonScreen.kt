@@ -106,6 +106,42 @@ fun LessonScreen(
 
                     StepType.LEARN -> LearnStep(step)
 
+                    StepType.MULTIPLE_CHOICE_MEDIA -> key(step) {
+                        MultipleChoiceMedia(
+                            step = step,
+                            onAnswer = { correct ->
+                                handleAnswer(correct, step)
+                            }
+                        )
+                    }
+
+                    StepType.BUILD_WORD_IMAGES -> key(step) {
+                        BuildWordImages(
+                            step = step,
+                            onAnswer = { correct ->
+                                handleAnswer(correct, step)
+                            }
+                        )
+                    }
+
+                    StepType.BUILD_WORD_KEYBOARD -> key(step) {
+                        BuildWordKeyboard(
+                            step = step,
+                            onAnswer = { correct ->
+                                handleAnswer(correct, step)
+                            }
+                        )
+                    }
+
+                    StepType.WRITE_WORD -> key(step) {
+                        WriteWord(
+                            step = step,
+                            onAnswer = { correct ->
+                                handleAnswer(correct, step)
+                            }
+                        )
+                    }
+
                     StepType.QUIZ -> key(step) {
                         QuizStep(step) { correct ->
                             handleAnswer(correct, step)

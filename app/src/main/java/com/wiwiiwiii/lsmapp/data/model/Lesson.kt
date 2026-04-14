@@ -14,7 +14,7 @@ data class LessonStep(
     val title: String? = null,
     val image: String? = null,
     val question: String? = null,
-    val options: List<String>? = null,
+    val options: List<OptionItem>? = null,
     val correct: String? = null,
 
     val pairs: List<MatchPair>? = null,

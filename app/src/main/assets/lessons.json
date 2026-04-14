@@ -14,27 +14,35 @@
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "a_img",
-        "options": ["A", "M", "O"],
+        "options": [
+          { "text": "A" },
+          { "text": "M" },
+          { "text": "O" }
+        ],
         "correct": "A"
       },
       {
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "m_img",
-        "options": ["A", "M", "O"],
+        "options": [
+          { "text": "A" },
+          { "text": "M" },
+          { "text": "O" }
+        ],
         "correct": "M"
       },
 
       {
         "type": "MULTIPLE_CHOICE_MEDIA",
-        "question": "¿Cuál es la seña de 'A'?",
+        "question": "¿Cuál es la seña de 'O'?",
         "options": [
           { "text": "A", "media": "a_img" },
           { "text": "M", "media": "m_img" },
           { "text": "O", "media": "o_img" },
           { "text": "P", "media": "p_img" }
         ],
-        "correct": "A"
+        "correct": "O"
       },
 
       {
@@ -64,14 +72,22 @@
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "p_img",
-        "options": ["P", "L", "M"],
+        "options": [
+          { "text": "P" },
+          { "text": "L" },
+          { "text": "M" }
+        ],
         "correct": "P"
       },
       {
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "l_img",
-        "options": ["L", "A", "O"],
+        "options": [
+          { "text": "L" },
+          { "text": "A" },
+          { "text": "O" }
+        ],
         "correct": "L"
       },
 
@@ -108,7 +124,11 @@
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "ll_img",
-        "options": ["LL", "L", "M"],
+        "options": [
+          { "text": "LL" },
+          { "text": "L" },
+          { "text": "M" }
+        ],
         "correct": "LL"
       },
 
@@ -116,9 +136,9 @@
         "type": "BUILD_WORD_IMAGES",
         "question": "Construye la palabra 'LLAMA'",
         "options": [
-          { "letter": "M", "media": "m_img" },
-          { "letter": "A", "media": "a_img" },
-          { "letter": "LL", "media": "ll_img" }
+          { "text": "M", "letter": "M", "media": "m_img" },
+          { "text": "A", "letter": "A", "media": "a_img" },
+          { "text": "LL", "letter": "LL", "media": "ll_img" }
         ],
         "correct": "LLAMA"
       },
@@ -148,14 +168,22 @@
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "s_img",
-        "options": ["S", "E", "A"],
+        "options": [
+          { "text": "S" },
+          { "text": "E" },
+          { "text": "A" }
+        ],
         "correct": "S"
       },
       {
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "e_img",
-        "options": ["E", "O", "L"],
+        "options": [
+          { "text": "E" },
+          { "text": "O" },
+          { "text": "L" }
+        ],
         "correct": "E"
       },
 
@@ -192,14 +220,22 @@
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "t_img",
-        "options": ["T", "I", "S"],
+        "options": [
+          { "text": "T" },
+          { "text": "I" },
+          { "text": "S" }
+        ],
         "correct": "T"
       },
       {
         "type": "QUIZ",
         "question": "¿Qué letra es esta?",
         "image": "i_img",
-        "options": ["I", "E", "A"],
+        "options": [
+          { "text": "I" },
+          { "text": "E" },
+          { "text": "A" }
+        ],
         "correct": "I"
       },
 
@@ -216,174 +252,57 @@
   },
 
   {
-    "id": "expresiones_old",
+    "id": "expresiones_old_1",
     "order": 11,
     "title": "Saludos",
     "steps": [
       {
-        "type": "INTRO",
-        "text": "¡Hoy aprenderás saludos básicos!"
-      },
-      {
-        "type": "LEARN",
-        "title": "Hola",
-        "image": "hola_img"
-      },
-      {
-        "type": "LEARN",
-        "title": "Adiós",
-        "image": "adios_img"
-      },
-      {
         "type": "QUIZ",
         "question": "¿Qué seña es esta?",
         "image": "hola_img",
-        "options": ["Hola", "Adiós"],
+        "options": [
+          { "text": "Hola" },
+          { "text": "Adiós" }
+        ],
         "correct": "Hola"
-      },
-      {
-        "type": "QUIZ",
-        "question": "¿Qué seña es esta?",
-        "image": "adios_img",
-        "options": ["Hola", "Adiós"],
-        "correct": "Adiós"
-      },
-      {
-        "type": "MATCH",
-        "pairs": [
-          { "word": "Hola", "image": "hola_img" },
-          { "word": "Adiós", "image": "adios_img" }
-        ]
-      },
-      {
-        "type": "RESULT"
       }
     ]
   },
 
   {
-    "id": "expresiones_old",
+    "id": "expresiones_old_2",
     "order": 12,
     "title": "Expresiones básicas",
     "steps": [
-
-      {
-        "type": "INTRO",
-        "text": "Aprende expresiones básicas en LSM"
-      },
-
-      {
-        "type": "LEARN",
-        "title": "Gracias",
-        "image": "gracias"
-      },
-      {
-        "type": "LEARN",
-        "title": "Por favor",
-        "image": "por_favor"
-      },
-      {
-        "type": "LEARN",
-        "title": "Perdón",
-        "image": "perdon"
-      },
-
       {
         "type": "QUIZ",
         "question": "¿Qué significa esta seña?",
         "image": "gracias",
-        "options": ["Gracias", "Perdón", "Hola"],
+        "options": [
+          { "text": "Gracias" },
+          { "text": "Perdón" },
+          { "text": "Hola" }
+        ],
         "correct": "Gracias"
-      },
-      {
-        "type": "QUIZ",
-        "question": "¿Qué significa esta seña?",
-        "image": "por_favor",
-        "options": ["Gracias", "Por favor", "Adiós"],
-        "correct": "Por favor"
-      },
-      {
-        "type": "QUIZ",
-        "question": "¿Qué significa esta seña?",
-        "image": "perdon",
-        "options": ["Perdón", "Hola", "Buenas noches"],
-        "correct": "Perdón"
-      },
-
-      {
-        "type": "MATCH",
-        "pairs": [
-          { "word": "Gracias", "image": "gracias" },
-          { "word": "Por favor", "image": "por_favor" },
-          { "word": "Perdón", "image": "perdon" }
-        ]
-      },
-
-      {
-        "type": "RESULT"
       }
     ]
   },
+
   {
     "id": "saludos_formales_old",
     "order": 13,
     "title": "Saludos formales",
     "steps": [
-
-      {
-        "type": "INTRO",
-        "text": "Aprende saludos según la hora del día"
-      },
-
-      {
-        "type": "LEARN",
-        "title": "Buenos días",
-        "image": "buenos_dias"
-      },
-      {
-        "type": "LEARN",
-        "title": "Buenas tardes",
-        "image": "buenas_tardes"
-      },
-      {
-        "type": "LEARN",
-        "title": "Buenas noches",
-        "image": "buenas_noches"
-      },
-
       {
         "type": "QUIZ",
         "question": "¿Qué significa esta seña?",
         "image": "buenos_dias",
-        "options": ["Buenos días", "Buenas noches", "Hola"],
+        "options": [
+          { "text": "Buenos días" },
+          { "text": "Buenas noches" },
+          { "text": "Hola" }
+        ],
         "correct": "Buenos días"
-      },
-      {
-        "type": "QUIZ",
-        "question": "¿Qué significa esta seña?",
-        "image": "buenas_tardes",
-        "options": ["Buenas tardes", "Buenos días", "Adiós"],
-        "correct": "Buenas tardes"
-      },
-      {
-        "type": "QUIZ",
-        "question": "¿Qué significa esta seña?",
-        "image": "buenas_noches",
-        "options": ["Buenas noches", "Hola", "Gracias"],
-        "correct": "Buenas noches"
-      },
-
-      {
-        "type": "MATCH",
-        "pairs": [
-          { "word": "Buenos días", "image": "buenos_dias" },
-          { "word": "Buenas tardes", "image": "buenas_tardes" },
-          { "word": "Buenas noches", "image": "buenas_noches" }
-        ]
-      },
-
-      {
-        "type": "RESULT"
       }
     ]
   }
