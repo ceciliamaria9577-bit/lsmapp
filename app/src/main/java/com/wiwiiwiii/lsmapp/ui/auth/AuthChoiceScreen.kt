@@ -53,6 +53,7 @@ fun AuthChoiceScreen(navController: NavController) {
         ) {
             Text("Registrarse",
                 fontSize = 20.sp,
+                fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.primary)
         }
 
@@ -77,6 +78,7 @@ fun AuthChoiceScreen(navController: NavController) {
         ) {
             Text("Iniciar Sesión",
                 fontSize = 20.sp,
+                fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.primary)
         }
     }

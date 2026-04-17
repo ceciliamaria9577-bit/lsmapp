@@ -37,40 +37,42 @@ fun SectionBlock(
         ) {
             Text(
                 "Sección ${seccion.id}",
-                fontSize = 24.sp,
+                fontSize = 26.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(4.dp),
                 color = MaterialTheme.colorScheme.primary
             )
+
             Text(
                 seccion.titulo,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Medium,
                 modifier = Modifier.padding(4.dp),
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.primary
             )
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        seccion.temas.forEach { tema ->
+
+        seccion.temas.forEachIndexed { index, tema ->
 
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp)) {
 
-                //  HEADER (NO tiene timeline)
+                //  HEADER
                 TemaHeader(
-                    titulo = "Título",
-                    tema = tema.titulo
+                    titulo = tema.titulo,
+                    numeroTema = index + 1
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Row {
 
-                    //  TIMELINE SOLO DE ESTE TEMA
+                    //  TIMELINE
                     Column(
                         modifier = Modifier.width(24.dp),
                         horizontalAlignment = Alignment.CenterHorizontally

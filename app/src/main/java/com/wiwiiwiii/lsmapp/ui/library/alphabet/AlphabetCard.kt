@@ -27,7 +27,7 @@ fun AlphabetCard(
         onClick = onClick,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFEDEDED)
+            containerColor = MaterialTheme.colorScheme.surface
         ),
         modifier = Modifier
             .fillMaxWidth()
@@ -40,7 +40,7 @@ fun AlphabetCard(
             Text(
                 text = item.letter,
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.primary,
                 textAlign = TextAlign.Center
             )

@@ -44,7 +44,9 @@ fun LetterDetailScreen(
                 }            }) {
                 Icon(
                     imageVector = Icons.Default.Close,
-                    contentDescription = "Close"
+                    contentDescription = "Close",
+                    modifier = Modifier.size(36.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -53,9 +55,9 @@ fun LetterDetailScreen(
 
         //  Contenedor letra
         Card(
-            shape = RoundedCornerShape(16.dp),
+            shape = RoundedCornerShape(18.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFEDEDED)
+                containerColor = MaterialTheme.colorScheme.surface
             ),
             modifier = Modifier
                 .width(120.dp)
@@ -76,11 +78,11 @@ fun LetterDetailScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        //  Contenedor imagen (placeholder por ahora)
+        //  Contenedor imagen
         Card(
-            shape = RoundedCornerShape(16.dp),
+            shape = RoundedCornerShape(18.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFDADADA)
+                containerColor = MaterialTheme.colorScheme.surface
             ),
             modifier = Modifier
                 .fillMaxWidth()
@@ -104,14 +106,15 @@ fun LetterDetailScreen(
 
         //  Contenedor descripción
         Card(
-            shape = RoundedCornerShape(16.dp),
+            shape = RoundedCornerShape(18.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFEDEDED)
+                containerColor = MaterialTheme.colorScheme.surface
             ),
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
                 text = item.description,
+                fontSize = 18.sp,
                 modifier = Modifier.padding(20.dp),
                 textAlign = TextAlign.Center
             )
@@ -135,9 +138,9 @@ fun LetterDetailScreen(
                             launchSingleTop = true
                         }
                               },
-                    shape = RoundedCornerShape(16.dp),
+                    shape = RoundedCornerShape(18.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFD6D6D6)
+                        containerColor = MaterialTheme.colorScheme.surface
                     ),
                     modifier = Modifier.size(60.dp)
                 ) {
@@ -146,7 +149,8 @@ fun LetterDetailScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(Icons.Default.ArrowBack, contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary)
+                            modifier = Modifier.size(36.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 }
             }
@@ -163,9 +167,9 @@ fun LetterDetailScreen(
                             launchSingleTop = true
                         }
                               },
-                    shape = RoundedCornerShape(16.dp),
+                    shape = RoundedCornerShape(18.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFD6D6D6)
+                        containerColor = MaterialTheme.colorScheme.surface
                     ),
                     modifier = Modifier.size(60.dp)
                 ) {
@@ -174,7 +178,8 @@ fun LetterDetailScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(Icons.Default.ArrowForward, contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary)
+                            modifier = Modifier.size(36.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 }
             }

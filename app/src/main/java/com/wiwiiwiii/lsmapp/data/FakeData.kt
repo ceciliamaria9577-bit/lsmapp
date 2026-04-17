@@ -10,15 +10,15 @@ fun fakeData(): List<Seccion> {
             id = 1,
             titulo = "Introducción",
             temas = listOf(
-                Tema(1, "Tema 1", listOf(
+                Tema(1, "Abecedario", listOf(
                     "letras_amo",
                     "letras_pl",
                     "letras_ll",
                     "letras_se",
                     "letras_ti"
                 )),
-                Tema(2, "Tema 2", listOf()),
-                Tema(3, "Tema 3", listOf())
+                Tema(2, "Abecedario 2", listOf()),
+                Tema(3, "Pronombres", listOf())
             )
         ),
 

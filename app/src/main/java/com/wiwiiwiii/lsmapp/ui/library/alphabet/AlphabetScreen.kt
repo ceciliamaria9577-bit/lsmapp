@@ -39,7 +39,8 @@ fun AlphabetScreen(navController: NavController) {
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.primary)
+                    modifier = Modifier.size(36.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant)
             }
 
             Box(

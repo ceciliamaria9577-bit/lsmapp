@@ -53,6 +53,7 @@ fun WelcomeScreen(navController: NavController) {
             ) {
                 Text("Empecemos",
                     fontSize = 20.sp,
+                    fontWeight = FontWeight.Medium,
                     color = MaterialTheme.colorScheme.primary)
             }
         }

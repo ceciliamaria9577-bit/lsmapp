@@ -21,14 +21,14 @@ import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
 @Composable
 fun TemaHeader(
     titulo: String,
-    tema: String
-) {
+    numeroTema : Int
+    ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .background(
                 LocalExtendedColors.current.miniContainer,
-                RoundedCornerShape(16.dp)
+                RoundedCornerShape(26.dp)
             )
             .padding(16.dp)
     ) {
@@ -36,7 +36,7 @@ fun TemaHeader(
         //  TEXTOS ARRIBA
         Text(
             titulo,
-            fontSize = 26.sp,
+            fontSize = 24.sp,
             color = LocalExtendedColors.current.buttonText,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
@@ -44,12 +44,13 @@ fun TemaHeader(
         )
 
         Text(
-            tema,
+            text = "Tema $numeroTema",
             fontSize = 18.sp,
             color = MaterialTheme.colorScheme.onSurface,
             fontWeight = FontWeight.Medium,
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()        )
+            modifier = Modifier.fillMaxWidth()
+        )
 
         Spacer(modifier = Modifier.height(12.dp))
 
@@ -60,7 +61,7 @@ fun TemaHeader(
                 .height(120.dp)
                 .background(
                     MaterialTheme.colorScheme.primary,
-                    RoundedCornerShape(12.dp)
+                    RoundedCornerShape(16.dp)
                 )
         )
     }
