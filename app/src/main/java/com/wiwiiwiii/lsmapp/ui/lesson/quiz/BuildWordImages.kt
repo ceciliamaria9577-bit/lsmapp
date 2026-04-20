@@ -9,7 +9,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.platform.LocalContext
@@ -41,13 +40,12 @@ fun BuildWordImages(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(160.dp) // menos porque no hay imagen grande arriba
+                .height(160.dp)
         ) {
 
             Text(step.question ?: "",
-                fontSize = 24.sp,
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Bold)
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.primary)
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -71,7 +69,9 @@ fun BuildWordImages(
                                     RoundedCornerShape(8.dp)),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text(char)
+                            Text(char,
+                                style = MaterialTheme.typography.bodyLarge,
+                            )
                         }
                     }
                 }

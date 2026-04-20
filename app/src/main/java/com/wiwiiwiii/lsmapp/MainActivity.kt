@@ -26,6 +26,7 @@ import com.wiwiiwiii.lsmapp.ui.library.LibraryScreen
 import com.wiwiiwiii.lsmapp.ui.library.alphabet.AlphabetScreen
 import com.wiwiiwiii.lsmapp.ui.library.alphabet.LetterDetailScreen
 import com.wiwiiwiii.lsmapp.ui.profile.ProfileScreen
+import com.wiwiiwiii.lsmapp.ui.profile.SettingsScreen
 import com.wiwiiwiii.lsmapp.ui.theme.LsmappTheme
 import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
 
@@ -89,7 +90,7 @@ fun AppNavigation() {
                 AlphabetScreen(navController)
             }
 
-            composable("profile") { ProfileScreen(progressViewModel) }
+            composable("profile") { ProfileScreen(progressViewModel, navController) }
 
             composable("lesson/{id}") { backStackEntry ->
 
@@ -110,6 +111,11 @@ fun AppNavigation() {
                 val index = backStackEntry.arguments?.getString("index")?.toInt() ?: 0
                 LetterDetailScreen(navController, index)
             }
+
+            composable("settings") {
+                SettingsScreen(navController)
+            }
+
         }
     }
 }

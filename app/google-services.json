@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90731402508",
+    "project_id": "lsmapp-60087",
+    "storage_bucket": "lsmapp-60087.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90731402508:android:91b0ee668e500bb5c82529",
+        "android_client_info": {
+          "package_name": "com.wiwiiwiii.lsmapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3y7vlR21ultJ8rmZHEOiFPj47vtXROxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -33,10 +33,9 @@ fun LearnStep(step: LessonStep) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Text(step.title ?: "", style = MaterialTheme.typography.titleLarge,
-            fontSize = 24.sp,
+        Text(step.title ?: "",
+            style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth())
 
@@ -76,7 +75,7 @@ fun LearnStep(step: LessonStep) {
                 .padding(16.dp)
         ) {
             Text("Descripción de la seña.",
-                fontSize = 20.sp,
+                style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
                 color = MaterialTheme.colorScheme.primary            )

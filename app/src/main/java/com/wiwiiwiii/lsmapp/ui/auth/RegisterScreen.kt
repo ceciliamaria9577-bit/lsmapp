@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.wiwiiwiii.lsmapp.R
 import com.wiwiiwiii.lsmapp.ui.components.CustomInput
+import com.wiwiiwiii.lsmapp.ui.theme.ExtraSmallText
 import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
 
 
@@ -58,7 +59,7 @@ fun RegisterScreen(navController: NavController) {
             Column {
 
                 Text("Registrarse",
-                    fontSize = 26.sp,
+                    style = MaterialTheme.typography.headlineMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.padding(12.dp))
@@ -124,7 +125,7 @@ fun RegisterScreen(navController: NavController) {
                         .height(40.dp)
                 ) {
                     Text("Registrarse",
-                        fontSize = 20.sp,
+                        style = MaterialTheme.typography.labelSmall,
                         color = LocalExtendedColors.current.buttonText
                     )
                 }
@@ -142,11 +143,11 @@ fun RegisterScreen(navController: NavController) {
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Text("¿Ya tienes cuenta? ",
-                        fontSize = 14.sp,
+                        style = ExtraSmallText,
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text("Inicia sesión",
-                        fontSize = 14.sp,
+                        style = ExtraSmallText,
                         color = LocalExtendedColors.current.buttonText
                     )
                 }

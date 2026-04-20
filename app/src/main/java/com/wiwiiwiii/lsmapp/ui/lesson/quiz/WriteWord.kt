@@ -29,9 +29,8 @@ fun WriteWord(
     Column {
 
         Text(step.question ?: "",
-            fontSize = 24.sp,
-            color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold)
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primary)
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -75,7 +74,9 @@ fun WriteWord(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Verificar", fontSize = 18.sp)
+            Text("Verificar",
+                style = MaterialTheme.typography.labelSmall,
+            )
         }
     }
 }

@@ -10,7 +10,11 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.navigation.NavController
 import com.wiwiiwiii.lsmapp.ui.components.AchievementItem
+import com.wiwiiwiii.lsmapp.ui.components.CustomDivider
+import com.wiwiiwiii.lsmapp.ui.components.FullDivider
+import com.wiwiiwiii.lsmapp.ui.components.InsetDivider
 import com.wiwiiwiii.lsmapp.ui.profile.components.AddFriendItem
 import com.wiwiiwiii.lsmapp.ui.profile.components.FriendItem
 import com.wiwiiwiii.lsmapp.ui.profile.components.ProfileHeader
@@ -20,7 +24,9 @@ import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
 import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
 
 @Composable
-fun ProfileScreen(progressViewModel: ProgressViewModel) {
+fun ProfileScreen(
+    progressViewModel: ProgressViewModel,
+    navController: NavController) {
 
     var selectedTab by remember { mutableStateOf(0) }
 
@@ -29,7 +35,11 @@ fun ProfileScreen(progressViewModel: ProgressViewModel) {
     ) {
 
         // HEADER (parte superior)
-        ProfileHeader()
+        ProfileHeader(
+            onSettingsClick = {
+                navController.navigate("settings")
+            }
+        )
 
         // CONTENEDOR PRINCIPAL (como tarjeta flotante)
         Column(
@@ -50,18 +60,15 @@ fun ProfileScreen(progressViewModel: ProgressViewModel) {
                 modifier = Modifier.padding(horizontal = 16.dp)
             ) {
                 Text("Nombre de Usuario",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.padding(6.dp))
                 Text("@usuario",
-                    fontSize = 18.sp,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier.padding(6.dp))
 
-                Divider(modifier = Modifier.padding(vertical = 20.dp)
-                    .height(3.dp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant)
+                CustomDivider(paddingVertical = 16.dp)
             }
 
             StatsBar(progressViewModel)
@@ -96,17 +103,11 @@ fun LogrosSection() {
 
         Text(
             "Personales",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Medium,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface
         )
 
-        Divider(
-            modifier = Modifier.padding(vertical = 12.dp)
-                .height(3.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            thickness = 2.dp
-        )
+        CustomDivider(paddingVertical = 12.dp)
 
         Row {
             repeat(4) {
@@ -118,17 +119,11 @@ fun LogrosSection() {
 
         Text(
             "Tiempo",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Medium,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface
         )
 
-        Divider(
-            modifier = Modifier.padding(vertical = 12.dp)
-                .height(3.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            thickness = 2.dp
-        )
+        CustomDivider(paddingVertical = 12.dp)
 
         Row {
             repeat(4) {
@@ -154,17 +149,11 @@ fun EstadisticasSection() {
         //  GENERAL
         Text(
             "General",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Medium,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface
         )
 
-        Divider(
-            modifier = Modifier.padding(vertical = 12.dp)
-                .height(3.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            thickness = 2.dp
-        )
+        CustomDivider(paddingVertical = 12.dp)
 
         LinearProgressIndicator(
             progress = 0.3f,
@@ -180,8 +169,7 @@ fun EstadisticasSection() {
         //  CONOCIMIENTOS
         Text(
             "Conocimientos",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Medium,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface
         )
 
@@ -193,8 +181,7 @@ fun EstadisticasSection() {
         )
 
         Text("Abecedario",
-            fontSize = 14.sp,
-            modifier = Modifier.padding(8.dp),
+            style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurface
         )
 
@@ -211,8 +198,7 @@ fun EstadisticasSection() {
         )
 
         Text("Números",
-            fontSize = 14.sp,
-            modifier = Modifier.padding(8.dp),
+            style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurface
         )
 
@@ -241,17 +227,11 @@ fun AmigosSection() {
 
         Text(
             "Amigos",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Medium,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface
         )
 
-        Divider(
-            modifier = Modifier.padding(vertical = 12.dp)
-                .height(3.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            thickness = 2.dp
-        )
+        CustomDivider(paddingVertical = 12.dp)
 
         Row {
             repeat(3) { FriendItem() }
@@ -262,21 +242,16 @@ fun AmigosSection() {
 
         Text(
             "Solicitudes de amistad",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Medium,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface
         )
 
-        Divider(
-            modifier = Modifier.padding(vertical = 12.dp)
-                .height(3.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            thickness = 2.dp
-        )
+        CustomDivider(paddingVertical = 12.dp)
 
         Text(
             "Aún no hay solicitudes",
-            color = MaterialTheme.colorScheme.onSurface
-        )
+            color = MaterialTheme.colorScheme.onSurface,
+            style = MaterialTheme.typography.bodyLarge,
+            )
     }
 }

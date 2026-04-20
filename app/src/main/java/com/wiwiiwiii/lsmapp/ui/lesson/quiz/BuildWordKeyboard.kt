@@ -8,7 +8,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.platform.LocalContext
@@ -49,9 +48,8 @@ fun BuildWordKeyboard(
         ) {
 
             Text(step.question ?: "",
-                fontSize = 24.sp,
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Bold)
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.primary)
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -90,7 +88,9 @@ fun BuildWordKeyboard(
                                     RoundedCornerShape(8.dp)),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text(char)
+                            Text(char,
+                                style = MaterialTheme.typography.bodyLarge
+                            )
                         }
                     }
                 }
@@ -107,7 +107,7 @@ fun BuildWordKeyboard(
             }
         }
 
-        //  BLOQUE FLEXIBLE (NO EMPUJA ARRIBA)
+        //  BLOQUE FLEXIBLE
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -129,7 +129,9 @@ fun BuildWordKeyboard(
                             }
                         }
                     ) {
-                        Text(letter)
+                        Text(letter,
+                            style = MaterialTheme.typography.bodyLarge
+                        )
                     }
                 }
             }

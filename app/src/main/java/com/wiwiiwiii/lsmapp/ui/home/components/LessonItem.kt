@@ -25,6 +25,7 @@ fun LessonItem(
     titulo: String,
     numero: Int,
     desbloqueado: Boolean,
+    isCompleted: Boolean,
     onClick: () -> Unit
 ) {
 
@@ -56,12 +57,13 @@ fun LessonItem(
         ) {
             Text(
                 text = "Lección $numero",
-            )
+                style = MaterialTheme.typography.bodyLarge
+                )
 
             Text(
                 text = titulo,
-                fontWeight = FontWeight.Bold
-            )
+                style = MaterialTheme.typography.bodyMedium
+                )
 
             Spacer(modifier = Modifier.height(6.dp))
 
@@ -70,7 +72,13 @@ fun LessonItem(
                 enabled = desbloqueado,
                 shape = RoundedCornerShape(50)
             ) {
-                Text(if (desbloqueado) "Comenzar" else "Bloqueado")
+                Text(
+                    text = when {
+                        !desbloqueado -> "Bloqueado"
+                        isCompleted -> "Repasar"
+                        else -> "Comenzar"
+                    },
+                    style = MaterialTheme.typography.bodyLarge)
             }
         }
     }

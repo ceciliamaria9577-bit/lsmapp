@@ -39,12 +39,15 @@ fun PersonalizationScreen(navController: NavController) {
 
         Text("Personalización",
             color = MaterialTheme.colorScheme.primary,
-            fontSize = 28.sp,
-            fontWeight = FontWeight.Bold)
+            style = MaterialTheme.typography.headlineMedium
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
 
         Text("¡Es hora de darle vida a tu personaje!",
             color = MaterialTheme.colorScheme.onBackground,
-            fontSize = 18.sp)
+            style = MaterialTheme.typography.bodySmall
+        )
 
         Spacer(modifier = Modifier.height(30.dp))
 
@@ -84,7 +87,8 @@ fun PersonalizationScreen(navController: NavController) {
         ) {
             Text("Siguiente",
                 color = LocalExtendedColors.current.buttonText,
-                fontSize = 18.sp)
+                style = MaterialTheme.typography.labelSmall
+            )
         }
     }
 }

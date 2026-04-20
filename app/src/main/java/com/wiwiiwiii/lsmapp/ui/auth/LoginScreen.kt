@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.wiwiiwiii.lsmapp.R
 import com.wiwiiwiii.lsmapp.ui.components.CustomInput
+import com.wiwiiwiii.lsmapp.ui.theme.ExtraSmallText
 import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
 
 
@@ -66,8 +67,7 @@ fun LoginScreen(navController: NavController) {
 
                 Text(
                     "Iniciar Sesión",
-                    fontSize = 26.sp,
-                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.padding(12.dp)
                 )
@@ -101,7 +101,7 @@ fun LoginScreen(navController: NavController) {
 
                 Text(
                     "Olvidé la contraseña",
-                    fontSize = 14.sp,
+                    style = ExtraSmallText,
                     modifier = Modifier.align(Alignment.End)
                         .padding(18.dp),
                     color = MaterialTheme.colorScheme.primary,
@@ -126,7 +126,7 @@ fun LoginScreen(navController: NavController) {
                         .height(40.dp)
                 ) {
                     Text("Iniciar sesión",
-                        fontSize = 20.sp,
+                        style = MaterialTheme.typography.labelSmall,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth()  ,
                         color = LocalExtendedColors.current.buttonText
@@ -142,7 +142,7 @@ fun LoginScreen(navController: NavController) {
                         .height(3.dp),
                         color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Text("  Iniciar sesión con  ",
-                        fontSize = 18.sp,
+                        style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.primary,
                     )
                     Divider(modifier = Modifier.weight(1f)
@@ -176,10 +176,10 @@ fun LoginScreen(navController: NavController) {
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Text("¿No tienes cuenta? ",
-                        fontSize = 14.sp,
+                        style = ExtraSmallText,
                         color = MaterialTheme.colorScheme.primary)
                     Text("Regístrate",
-                        fontSize = 14.sp,
+                        style = ExtraSmallText,
                         color = LocalExtendedColors.current.buttonText
                     )
                 }

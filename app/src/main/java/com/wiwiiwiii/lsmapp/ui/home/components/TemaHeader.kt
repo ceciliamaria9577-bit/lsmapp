@@ -12,10 +12,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
 
 @Composable
@@ -36,18 +34,16 @@ fun TemaHeader(
         //  TEXTOS ARRIBA
         Text(
             titulo,
-            fontSize = 24.sp,
+            style = MaterialTheme.typography.titleLarge,
             color = LocalExtendedColors.current.buttonText,
-            fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
 
         Text(
             text = "Tema $numeroTema",
-            fontSize = 18.sp,
+            style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onSurface,
-            fontWeight = FontWeight.Medium,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )

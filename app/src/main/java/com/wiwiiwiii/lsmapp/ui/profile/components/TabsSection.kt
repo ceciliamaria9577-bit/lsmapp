@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.wiwiiwiii.lsmapp.ui.theme.ExtraSmallText
 
 @Composable
 fun TabsSection(
@@ -36,7 +37,7 @@ fun TabsSection(
 
                     Text(
                         text = title,
-                        fontSize = 16.sp,
+                        style = ExtraSmallText,
                         color = MaterialTheme.colorScheme.onBackground,
                         fontWeight = if (selectedTab == index) FontWeight.Bold else FontWeight.Normal
                     )

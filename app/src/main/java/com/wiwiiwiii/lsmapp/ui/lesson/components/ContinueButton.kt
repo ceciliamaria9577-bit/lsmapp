@@ -8,9 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun ContinueButton(onClick: () -> Unit) {
@@ -23,7 +21,6 @@ fun ContinueButton(onClick: () -> Unit) {
             .padding(16.dp)
     ) {
         Text("Continuar",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold)
+            style = MaterialTheme.typography.labelSmall)
     }
 }

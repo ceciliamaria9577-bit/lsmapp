@@ -54,8 +54,7 @@ fun FeedbackBox(
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSurface),
             ) {
                 Text("Continuar",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold)
+                    style = MaterialTheme.typography.labelSmall)
             }
         }
     }

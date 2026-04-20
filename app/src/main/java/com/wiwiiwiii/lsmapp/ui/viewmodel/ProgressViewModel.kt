@@ -14,6 +14,7 @@ class ProgressViewModel : ViewModel() {
     //  COMPLETAR LECCIÓN
     fun completeLesson(lessonId: String) {
         completedLessons = completedLessons + lessonId
+        println("COMPLETED: $lessonId → $completedLessons")
     }
 
     //  OBTENER SIGUIENTE LECCIÓN (para desbloqueo)

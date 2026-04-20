@@ -36,7 +36,10 @@ fun LessonScreen(
     var wrongSteps by remember { mutableStateOf(listOf<LessonStep>()) }
     var correctAnswers by remember { mutableStateOf(0) }
     var totalQuestions by remember { mutableStateOf(0) }
-    var isReviewMode by remember { mutableStateOf(false) }
+
+    val isLessonCompleted = progressViewModel.isLessonCompleted(lesson.id)
+    var internalReviewMode by remember { mutableStateOf(false) }
+    val isReviewMode = isLessonCompleted || internalReviewMode
 
     var unlockedLevel by remember { mutableStateOf(1) }
     var progressMap by remember {
@@ -47,14 +50,16 @@ fun LessonScreen(
 
     fun handleAnswer(correct: Boolean, step: LessonStep) {
 
-        if (!isReviewMode) {
-            totalQuestions++
-        }
+        // SIEMPRE contar
+        totalQuestions++
 
         if (correct) {
-            if (!isReviewMode) correctAnswers++
+            correctAnswers++
         } else {
-            if (!isReviewMode) wrongSteps = wrongSteps + step
+            // Solo guardar errores si NO es repaso
+            if (!isReviewMode) {
+                wrongSteps = wrongSteps + step
+            }
         }
 
         isCorrect = correct
@@ -160,10 +165,14 @@ fun LessonScreen(
                         startTime = startTime ?: System.currentTimeMillis(),
                         onFinish = { navController.popBackStack() },
                         onLessonCompleted = {
-                            progressViewModel.completeLesson(lesson.id)
+                            if (!isReviewMode) {
+                                progressViewModel.completeLesson(lesson.id)
+                            }
                         },
                         onAddPoints = { points ->
-                            progressViewModel.addPoints(points)
+                            if (!isReviewMode) {
+                                progressViewModel.addPoints(points)
+                            }
                         }
                     )
                 }
@@ -175,7 +184,7 @@ fun LessonScreen(
                 }
             }
         }
-                //  FEEDBACK (abajo)
+                //  FEEDBACK
         if (showFeedback) {
             FeedbackBox(
                 isCorrect = isCorrect,
@@ -185,9 +194,9 @@ fun LessonScreen(
 
                     val isAboutToFinish = nextStep?.type == StepType.RESULT
 
-                    if (isAboutToFinish && wrongSteps.isNotEmpty() && !isReviewMode) {
+                    if (isAboutToFinish && wrongSteps.isNotEmpty() && !isLessonCompleted) {
 
-                        isReviewMode = true
+                        internalReviewMode = true
 
                         val reviewSteps = wrongSteps.toMutableList()
 

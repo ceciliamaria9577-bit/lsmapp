@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.Image
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
@@ -21,29 +22,36 @@ fun TopBar(progressViewModel: ProgressViewModel) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
-        horizontalArrangement = Arrangement.SpaceEvenly
+            .padding(vertical = 12.dp, horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(52.dp, Alignment.CenterHorizontally),
+        verticalAlignment = Alignment.CenterVertically
     ) {
 
-        Row {
+        //  PUNTOS
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.fish),
                 contentDescription = "Pez",
-                modifier = Modifier.size(34.dp),
+                modifier = Modifier.size(30.dp),
                 contentScale = ContentScale.Fit,
-                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)                )
+                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
+            )
 
-            Spacer(modifier = Modifier.width(4.dp))
-
-            Text("${progressViewModel.points}",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(4.dp),
+            Text(
+                "${progressViewModel.points}",
+                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.primary
             )
         }
 
-        Row {
+        //  RACHA
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.fire),
                 contentDescription = "Racha",
@@ -52,12 +60,10 @@ fun TopBar(progressViewModel: ProgressViewModel) {
                 colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
             )
 
-            Spacer(modifier = Modifier.width(4.dp))
-
-            Text("777",
-                fontSize = 18.sp,
+            Text(
+                "777",
+                style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(4.dp),
                 color = MaterialTheme.colorScheme.primary
             )
         }

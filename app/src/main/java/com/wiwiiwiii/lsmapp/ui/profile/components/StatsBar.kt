@@ -52,7 +52,7 @@ fun StatItem(icon: Int, value: String) {
         Spacer(modifier = Modifier.height(4.dp))
 
         Text(value,
-            fontSize = 18.sp,
+            style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurface
         )
     }

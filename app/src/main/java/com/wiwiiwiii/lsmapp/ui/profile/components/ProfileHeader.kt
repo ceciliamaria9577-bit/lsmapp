@@ -11,14 +11,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ProfileHeader() {
+fun ProfileHeader(
+    onSettingsClick: () -> Unit
+) {
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(200.dp)
-            .background(
-                color = MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.surface)
     ) {
 
         //  Botones
@@ -28,10 +29,13 @@ fun ProfileHeader() {
                 .padding(16.dp)
         ) {
             Spacer(modifier = Modifier.weight(1f))
-            Icon(Icons.Default.Settings,
-                contentDescription = null,
+            Icon(
+                imageVector = Icons.Default.Settings,
+                contentDescription = "Configuración",
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.size(36.dp),
+                modifier = Modifier
+                    .size(45.dp)
+                    .clickable { onSettingsClick() }
             )
         }
 

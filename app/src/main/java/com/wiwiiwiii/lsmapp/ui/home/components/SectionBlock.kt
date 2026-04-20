@@ -6,8 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.wiwiiwiii.lsmapp.data.model.Lesson
 import com.wiwiiwiii.lsmapp.data.model.Seccion
@@ -20,7 +18,7 @@ fun SectionBlock(
     progressViewModel: ProgressViewModel,
     unlockedLevel: Int,
     nextLessonId: String?,
-    lessons: List<Lesson>
+    lessons: List<Lesson>,
 ) {
 
     var globalIndex = 1
@@ -37,16 +35,14 @@ fun SectionBlock(
         ) {
             Text(
                 "Sección ${seccion.id}",
-                fontSize = 26.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.labelSmall,
                 modifier = Modifier.padding(4.dp),
                 color = MaterialTheme.colorScheme.primary
             )
 
             Text(
                 seccion.titulo,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Medium,
+                style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(4.dp),
                 color = MaterialTheme.colorScheme.primary
             )
@@ -109,10 +105,11 @@ fun SectionBlock(
 
                         tema.lessonIds.forEach { lessonId ->
 
-                            val isCompleted = progressViewModel.isLessonCompleted(lessonId)
+                            val lessonCompleted = progressViewModel.isLessonCompleted(lessonId)
+                            println("SECTION (${progressViewModel.hashCode()}): $lessonId -> $lessonCompleted")
 
                             val isUnlocked = when {
-                                isCompleted -> true
+                                lessonCompleted -> true
                                 lessonId == nextLessonId -> true
                                 else -> false
                             }
@@ -123,6 +120,7 @@ fun SectionBlock(
                                 titulo = lesson?.title ?: "Lección $lessonId",
                                 numero = lesson?.order ?: globalIndex,
                                 desbloqueado = isUnlocked,
+                                isCompleted = lessonCompleted,
                                 onClick = {
                                     if (isUnlocked) {
                                         navController.navigate("lesson/$lessonId")
@@ -140,7 +138,6 @@ fun SectionBlock(
                 Spacer(modifier = Modifier.height(24.dp))
             }
         }
-
         Spacer(modifier = Modifier.height(24.dp))
     }
 }

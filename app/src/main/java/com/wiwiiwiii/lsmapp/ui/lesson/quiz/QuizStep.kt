@@ -44,9 +44,8 @@ fun QuizStep(
     Column {
 
         Text(step.question ?: "",
-            fontSize = 24.sp,
+            style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth())
 
@@ -105,7 +104,7 @@ fun QuizStep(
                     containerColor = MaterialTheme.colorScheme.onSurface
                 )
             ) {
-                Text(option.text ?: "", fontSize = 24.sp)
+                Text(option.text ?: "", style = MaterialTheme.typography.labelSmall)
             }
 
             Spacer(Modifier.height(8.dp))

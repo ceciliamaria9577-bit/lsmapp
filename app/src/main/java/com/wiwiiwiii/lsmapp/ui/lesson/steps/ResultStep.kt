@@ -1,7 +1,6 @@
 package com.wiwiiwiii.lsmapp.ui.lesson.steps
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,7 +21,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -62,10 +60,8 @@ fun ResultStep(
 
         Text(
             "¡Lección Completada!",
-            style = MaterialTheme.typography.titleLarge,
-            fontSize = 26.sp,
+            style = MaterialTheme.typography.headlineMedium,
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold
         )
 
         Spacer(Modifier.height(24.dp))
@@ -82,7 +78,7 @@ fun ResultStep(
             )
 
             Text("$percentage%",
-                fontSize = 36.sp,
+                style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.primary)        }
 
         Spacer(Modifier.height(24.dp))
@@ -107,8 +103,11 @@ fun ResultStep(
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(28.dp)
                 )
+
+                Spacer(Modifier.height(8.dp))
+
                 Text("$points",
-                    fontSize = 20.sp,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.primary)
             }
 
@@ -129,8 +128,11 @@ fun ResultStep(
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(28.dp)
                 )
+
+                Spacer(Modifier.height(8.dp))
+
                 Text(timeText,
-                    fontSize = 20.sp,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.primary)
             }
 
@@ -151,8 +153,11 @@ fun ResultStep(
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(28.dp)
                 )
+
+                Spacer(Modifier.height(8.dp))
+
                 Text("$correctAnswers/$totalQuestions",
-                    fontSize = 20.sp,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.primary)
             }
         }
@@ -169,9 +174,7 @@ fun ResultStep(
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSurface)
         ) {
             Text("Continuar",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
-            )
+                style = MaterialTheme.typography.labelSmall)
         }
     }
 }

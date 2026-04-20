@@ -25,9 +25,8 @@ fun AuthChoiceScreen(navController: NavController) {
 
         Text(
             "¿Ya cuentas con una cuenta?",
-            fontSize = 30.sp,
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.displayLarge,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
@@ -37,7 +36,7 @@ fun AuthChoiceScreen(navController: NavController) {
         Text(
             "Aún no...",
             color = MaterialTheme.colorScheme.primary,
-            fontSize = 24.sp,
+            style = MaterialTheme.typography.titleSmall,
             modifier = Modifier.padding(vertical = 12.dp)
         )
 
@@ -52,7 +51,7 @@ fun AuthChoiceScreen(navController: NavController) {
                 .height(50.dp)
         ) {
             Text("Registrarse",
-                fontSize = 20.sp,
+                style = MaterialTheme.typography.labelMedium,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.primary)
         }
@@ -62,7 +61,7 @@ fun AuthChoiceScreen(navController: NavController) {
         Text(
             "¡Ya tengo una!",
             color = MaterialTheme.colorScheme.primary,
-            fontSize = 24.sp,
+            style = MaterialTheme.typography.titleSmall,
             modifier = Modifier.padding(vertical = 12.dp)
         )
 
@@ -77,7 +76,7 @@ fun AuthChoiceScreen(navController: NavController) {
                 .height(50.dp)
         ) {
             Text("Iniciar Sesión",
-                fontSize = 20.sp,
+                style = MaterialTheme.typography.labelMedium,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.primary)
         }

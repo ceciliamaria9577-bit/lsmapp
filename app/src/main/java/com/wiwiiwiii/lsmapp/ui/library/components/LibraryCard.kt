@@ -41,8 +41,7 @@ fun LibraryCard(
         ) {
             Text(
                 text = item.title,
-                fontWeight = FontWeight.Bold,
-                fontSize = 24.sp,
+                style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary            )
 
             Spacer(modifier = Modifier.height(4.dp))
@@ -50,8 +49,8 @@ fun LibraryCard(
             Text(
                 text = item.description,
                 color = MaterialTheme.colorScheme.primary,
-                fontSize = 16.sp
-            )
+                style = MaterialTheme.typography.bodyLarge,
+                )
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -65,7 +64,8 @@ fun LibraryCard(
             ) {
                 Text("Ver",
                     color = LocalExtendedColors.current.buttonText,
-                    fontSize = 24.sp)
+                    style = MaterialTheme.typography.labelSmall,
+                )
             }
         }
     }

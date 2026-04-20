@@ -53,8 +53,7 @@ fun MatchStep(
         Text(
             "Une los pares",
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold,
-            fontSize = 24.sp,
+            style = MaterialTheme.typography.titleLarge,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
@@ -145,9 +144,8 @@ fun MatchStep(
                             text = word,
                             textAlign = TextAlign.Center,
                             color = LocalExtendedColors.current.buttonText,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 18.sp
-                        )
+                            style = MaterialTheme.typography.labelSmall
+                            )
                     }
                 }
             }

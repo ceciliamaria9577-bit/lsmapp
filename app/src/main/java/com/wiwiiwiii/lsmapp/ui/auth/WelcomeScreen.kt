@@ -27,14 +27,14 @@ fun WelcomeScreen(navController: NavController) {
 
             Text(
                 text = "¡Bienvenido!",
-                fontSize = 32.sp,
+                style = MaterialTheme.typography.displayLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
             )
 
             Text(
                 text = "a Habla con Señas",
-                fontSize = 24.sp,
+                style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.primary
             )
 
@@ -52,7 +52,7 @@ fun WelcomeScreen(navController: NavController) {
                     .height(50.dp)
             ) {
                 Text("Empecemos",
-                    fontSize = 20.sp,
+                    style = MaterialTheme.typography.labelLarge,
                     fontWeight = FontWeight.Medium,
                     color = MaterialTheme.colorScheme.primary)
             }
