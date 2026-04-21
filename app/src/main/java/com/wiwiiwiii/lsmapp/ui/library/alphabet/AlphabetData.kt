@@ -31,3 +31,7 @@ val alphabetList = listOf(
     AlphabetItem("Y", R.drawable.y, "Extiende el pulgar y el dedo meñique hacia afuera. Los otros tres dedos deben permanecer doblados."),
     AlphabetItem("Z", R.drawable.z, "Extiende el dedo índice y dibuja en el aire la forma de una “Z”, moviendo la mano.")
 )
+
+fun getAlphabetItem(letter: String): AlphabetItem? {
+    return alphabetList.find { it.letter == letter }
+}

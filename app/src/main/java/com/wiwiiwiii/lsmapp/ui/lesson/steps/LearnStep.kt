@@ -1,5 +1,6 @@
 package com.wiwiiwiii.lsmapp.ui.lesson.steps
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -16,14 +17,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.wiwiiwiii.lsmapp.data.model.LessonStep
+import com.wiwiiwiii.lsmapp.ui.library.alphabet.getAlphabetItem
 
 @Composable
 fun LearnStep(step: LessonStep) {
@@ -74,11 +73,18 @@ fun LearnStep(step: LessonStep) {
                     RoundedCornerShape(12.dp))
                 .padding(16.dp)
         ) {
-            Text("Descripción de la seña.",
+            val alphabetItem = step.letters
+                ?.firstOrNull()
+                ?.let { letter -> getAlphabetItem(letter) }
+
+            Text(
+                text = alphabetItem?.description ?: "Descripción no disponible",
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
-                color = MaterialTheme.colorScheme.primary            )
+                color = MaterialTheme.colorScheme.primary
+            )
         }
     }
+    Log.d("LearnStep", "Letters: ${step.letters}")
 }

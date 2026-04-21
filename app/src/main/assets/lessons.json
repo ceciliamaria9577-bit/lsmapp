@@ -6,9 +6,9 @@
     "steps": [
       { "type": "INTRO", "text": "Aprende tus primeras letras: A, M y O" },
 
-      { "type": "LEARN", "title": "A", "image": "a_img" },
-      { "type": "LEARN", "title": "M", "image": "m_img" },
-      { "type": "LEARN", "title": "O", "image": "o_img" },
+      { "type": "LEARN", "title": "A", "image": "a_img", "letters": ["A"] },
+      { "type": "LEARN", "title": "M", "image": "m_img", "letters": ["M"] },
+      { "type": "LEARN", "title": "O", "image": "o_img", "letters": ["O"] },
 
       {
         "type": "QUIZ",
@@ -65,8 +65,8 @@
     "steps": [
       { "type": "INTRO", "text": "Aprende nuevas letras: P y L" },
 
-      { "type": "LEARN", "title": "P", "image": "p_img" },
-      { "type": "LEARN", "title": "L", "image": "l_img" },
+      { "type": "LEARN", "title": "P", "image": "p_img", "letters": ["P"] },
+      { "type": "LEARN", "title": "L", "image": "l_img", "letters": ["L"] },
 
       {
         "type": "QUIZ",
@@ -118,7 +118,7 @@
     "steps": [
       { "type": "INTRO", "text": "Aprende la letra LL" },
 
-      { "type": "LEARN", "title": "LL", "image": "ll_img" },
+      { "type": "LEARN", "title": "LL", "image": "ll_img", "letters": ["LL"] },
 
       {
         "type": "QUIZ",
@@ -161,8 +161,8 @@
     "steps": [
       { "type": "INTRO", "text": "Aprende las letras S y E" },
 
-      { "type": "LEARN", "title": "S", "image": "s_img" },
-      { "type": "LEARN", "title": "E", "image": "e_img" },
+      { "type": "LEARN", "title": "S", "image": "s_img", "letters": ["S"] },
+      { "type": "LEARN", "title": "E", "image": "e_img", "letters": ["E"] },
 
       {
         "type": "QUIZ",
@@ -213,8 +213,8 @@
     "steps": [
       { "type": "INTRO", "text": "Aprende las letras T e I" },
 
-      { "type": "LEARN", "title": "T", "image": "t_img" },
-      { "type": "LEARN", "title": "I", "image": "i_img" },
+      { "type": "LEARN", "title": "T", "image": "t_img", "letters": ["T"] },
+      { "type": "LEARN", "title": "I", "image": "i_img", "letters": ["I"] },
 
       {
         "type": "QUIZ",
@@ -248,62 +248,6 @@
       },
 
       { "type": "RESULT" }
-    ]
-  },
-
-  {
-    "id": "expresiones_old_1",
-    "order": 11,
-    "title": "Saludos",
-    "steps": [
-      {
-        "type": "QUIZ",
-        "question": "¿Qué seña es esta?",
-        "image": "hola_img",
-        "options": [
-          { "text": "Hola" },
-          { "text": "Adiós" }
-        ],
-        "correct": "Hola"
-      }
-    ]
-  },
-
-  {
-    "id": "expresiones_old_2",
-    "order": 12,
-    "title": "Expresiones básicas",
-    "steps": [
-      {
-        "type": "QUIZ",
-        "question": "¿Qué significa esta seña?",
-        "image": "gracias",
-        "options": [
-          { "text": "Gracias" },
-          { "text": "Perdón" },
-          { "text": "Hola" }
-        ],
-        "correct": "Gracias"
-      }
-    ]
-  },
-
-  {
-    "id": "saludos_formales_old",
-    "order": 13,
-    "title": "Saludos formales",
-    "steps": [
-      {
-        "type": "QUIZ",
-        "question": "¿Qué significa esta seña?",
-        "image": "buenos_dias",
-        "options": [
-          { "text": "Buenos días" },
-          { "text": "Buenas noches" },
-          { "text": "Hola" }
-        ],
-        "correct": "Buenos días"
-      }
     ]
   }
 ]
