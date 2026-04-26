@@ -13,6 +13,8 @@ data class LessonStep(
     val text: String? = null,
     val title: String? = null,
     val image: String? = null,
+    val video: String? = null,
+    val thumbnail: String? = null,
     val question: String? = null,
     val options: List<OptionItem>? = null,
     val correct: String? = null,

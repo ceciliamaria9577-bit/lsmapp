@@ -37,7 +37,7 @@ fun LibraryScreen(navController: NavController) {
                 text = "Biblioteca",
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(6.dp)
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -45,7 +45,7 @@ fun LibraryScreen(navController: NavController) {
 
         Divider(
             modifier = Modifier.fillMaxWidth(),
-            thickness = 3.dp,
+            thickness = 1.dp,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 

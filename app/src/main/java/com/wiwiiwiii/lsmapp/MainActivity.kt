@@ -11,11 +11,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.wiwiiwiii.lsmapp.data.repository.LessonRepository
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.wiwiiwiii.lsmapp.data.AuthRepository
 import com.wiwiiwiii.lsmapp.ui.auth.AuthChoiceScreen
 import com.wiwiiwiii.lsmapp.ui.auth.LoginScreen
 import com.wiwiiwiii.lsmapp.ui.auth.PersonalizationScreen
@@ -29,6 +31,7 @@ import com.wiwiiwiii.lsmapp.ui.profile.ProfileScreen
 import com.wiwiiwiii.lsmapp.ui.profile.SettingsScreen
 import com.wiwiiwiii.lsmapp.ui.theme.LsmappTheme
 import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
+import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -119,3 +122,5 @@ fun AppNavigation() {
         }
     }
 }
+
+

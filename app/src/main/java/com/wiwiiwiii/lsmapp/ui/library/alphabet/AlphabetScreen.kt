@@ -19,14 +19,14 @@ fun AlphabetScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF5F5F5))
+            .background(MaterialTheme.colorScheme.background)
     ) {
 
         //  Header
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
 
@@ -49,13 +49,18 @@ fun AlphabetScreen(navController: NavController) {
             ) {
                 Text(
                     text = "Abecedario",
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.headlineMedium,
                     color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.offset(x = (-10).dp)
+                    modifier = Modifier.offset(x = (-16).dp)
                 )
             }
         }
+
+        Divider(
+            modifier = Modifier.fillMaxWidth(),
+            thickness = 2.dp,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
 
         //  Grid de letras
         LazyVerticalGrid(

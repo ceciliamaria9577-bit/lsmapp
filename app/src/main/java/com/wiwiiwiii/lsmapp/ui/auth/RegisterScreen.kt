@@ -1,6 +1,7 @@
 package com.wiwiiwiii.lsmapp.ui.auth
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -12,15 +13,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.wiwiiwiii.lsmapp.R
 import com.wiwiiwiii.lsmapp.ui.components.CustomInput
 import com.wiwiiwiii.lsmapp.ui.theme.ExtraSmallText
 import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
+import com.wiwiiwiii.lsmapp.ui.viewmodel.AuthViewModel
 
 
 @Composable
 fun RegisterScreen(navController: NavController) {
+
+    val viewModel: AuthViewModel = viewModel()
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -30,9 +35,7 @@ fun RegisterScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(
-                color = MaterialTheme.colorScheme.background
-            )
+            .background(MaterialTheme.colorScheme.background)
     ) {
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -111,7 +114,16 @@ fun RegisterScreen(navController: NavController) {
 
                 Button(
                     onClick = {
-                        navController.navigate("personalization")
+
+                        if (password == confirm) {
+
+                            viewModel.register(email, password)
+
+                            navController.navigate("personalization")
+
+                        } else {
+                            println("Passwords no coinciden")
+                        }
                     },
                     shape = RoundedCornerShape(50),
                     colors = ButtonDefaults.buttonColors(
@@ -147,6 +159,9 @@ fun RegisterScreen(navController: NavController) {
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text("Inicia sesión",
+                        modifier = Modifier.clickable {
+                            navController.navigate("login")
+                        },
                         style = ExtraSmallText,
                         color = LocalExtendedColors.current.buttonText
                     )

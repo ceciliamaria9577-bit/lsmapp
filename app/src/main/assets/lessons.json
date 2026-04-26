@@ -6,7 +6,7 @@
     "steps": [
       { "type": "INTRO", "text": "Aprende tus primeras letras: A, M y O" },
 
-      { "type": "LEARN", "title": "A", "image": "a_img", "letters": ["A"] },
+      { "type": "LEARN", "title": "A", "video": "https://res.cloudinary.com/dovymoxln/video/upload/v1777168901/a_b4arzw.mp4", "thumbnail": "https://res.cloudinary.com/dovymoxln/image/upload/v1777174694/a_jh3ski.png", "letters": ["A"] },
       { "type": "LEARN", "title": "M", "image": "m_img", "letters": ["M"] },
       { "type": "LEARN", "title": "O", "image": "o_img", "letters": ["O"] },
 

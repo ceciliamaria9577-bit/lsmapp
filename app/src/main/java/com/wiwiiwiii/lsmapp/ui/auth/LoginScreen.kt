@@ -18,15 +18,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.wiwiiwiii.lsmapp.R
 import com.wiwiiwiii.lsmapp.ui.components.CustomInput
 import com.wiwiiwiii.lsmapp.ui.theme.ExtraSmallText
 import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
+import com.wiwiiwiii.lsmapp.ui.viewmodel.AuthViewModel
 
 
 @Composable
 fun LoginScreen(navController: NavController) {
+
+    val viewModel: AuthViewModel = viewModel()
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -34,9 +38,7 @@ fun LoginScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(
-                color = MaterialTheme.colorScheme.background
-            )
+            .background(MaterialTheme.colorScheme.background)
     ) {
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -111,6 +113,8 @@ fun LoginScreen(navController: NavController) {
 
                 Button(
                     onClick = {
+                        viewModel.login(email, password)
+
                         navController.navigate("home") {
                             popUpTo("welcome") { inclusive = true }
                         }
@@ -179,6 +183,9 @@ fun LoginScreen(navController: NavController) {
                         style = ExtraSmallText,
                         color = MaterialTheme.colorScheme.primary)
                     Text("Regístrate",
+                        modifier = Modifier.clickable {
+                            navController.navigate("register")
+                        },
                         style = ExtraSmallText,
                         color = LocalExtendedColors.current.buttonText
                     )
