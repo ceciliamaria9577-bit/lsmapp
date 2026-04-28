@@ -6,13 +6,27 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.wiwiiwiii.lsmapp.data.SessionManager
 
 @Composable
 fun WelcomeScreen(navController: NavController) {
+
+    val context = LocalContext.current
+    val session = SessionManager(context)
+
+    LaunchedEffect(Unit) {
+
+        if (session.getToken() != null) {
+            navController.navigate("home") {
+                popUpTo("welcome") { inclusive = true }
+            }
+        }
+    }
 
     Box(
         modifier = Modifier

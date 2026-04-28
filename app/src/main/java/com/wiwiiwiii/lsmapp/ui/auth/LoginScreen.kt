@@ -12,18 +12,19 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.wiwiiwiii.lsmapp.R
 import com.wiwiiwiii.lsmapp.ui.components.CustomInput
 import com.wiwiiwiii.lsmapp.ui.theme.ExtraSmallText
 import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
+import com.wiwiiwiii.lsmapp.ui.viewmodel.AuthState
 import com.wiwiiwiii.lsmapp.ui.viewmodel.AuthViewModel
 
 
@@ -31,6 +32,18 @@ import com.wiwiiwiii.lsmapp.ui.viewmodel.AuthViewModel
 fun LoginScreen(navController: NavController) {
 
     val viewModel: AuthViewModel = viewModel()
+    val state by viewModel.state
+
+    LaunchedEffect(state) {
+        if (state is AuthState.Success) {
+
+            navController.navigate("home") {
+                popUpTo("welcome") { inclusive = true }
+            }
+
+            viewModel.resetState()
+        }
+    }
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -111,13 +124,27 @@ fun LoginScreen(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(15.dp))
 
+                when (state) {
+
+                    is AuthState.Loading -> {
+                        Text("Cargando...")
+                    }
+
+                    is AuthState.Error -> {
+                        Text(
+                            text = (state as AuthState.Error).message,
+                            color = Color.Red
+                        )
+                    }
+
+                    else -> {}
+                }
+
+                val context = LocalContext.current
+
                 Button(
                     onClick = {
-                        viewModel.login(email, password)
-
-                        navController.navigate("home") {
-                            popUpTo("welcome") { inclusive = true }
-                        }
+                        viewModel.login(email, password, context)
                     },
                     shape = RoundedCornerShape(50),
                     colors = ButtonDefaults.buttonColors(

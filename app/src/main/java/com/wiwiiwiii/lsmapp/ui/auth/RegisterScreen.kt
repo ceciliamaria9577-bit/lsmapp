@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -19,6 +20,7 @@ import com.wiwiiwiii.lsmapp.R
 import com.wiwiiwiii.lsmapp.ui.components.CustomInput
 import com.wiwiiwiii.lsmapp.ui.theme.ExtraSmallText
 import com.wiwiiwiii.lsmapp.ui.theme.LocalExtendedColors
+import com.wiwiiwiii.lsmapp.ui.viewmodel.AuthState
 import com.wiwiiwiii.lsmapp.ui.viewmodel.AuthViewModel
 
 
@@ -26,6 +28,14 @@ import com.wiwiiwiii.lsmapp.ui.viewmodel.AuthViewModel
 fun RegisterScreen(navController: NavController) {
 
     val viewModel: AuthViewModel = viewModel()
+    val state by viewModel.state
+
+    LaunchedEffect(state) {
+        if (state is AuthState.Success) {
+            navController.navigate("username")
+            viewModel.resetState()
+        }
+    }
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -112,15 +122,24 @@ fun RegisterScreen(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(28.dp))
 
+                when (state) {
+                    is AuthState.Error -> {
+                        Text(
+                            text = (state as AuthState.Error).message,
+                            color = Color.Red
+                        )
+                    }
+                    is AuthState.Loading -> {
+                        Text("Cargando...")
+                    }
+                    else -> {}
+                }
+
                 Button(
                     onClick = {
 
                         if (password == confirm) {
-
                             viewModel.register(email, password)
-
-                            navController.navigate("personalization")
-
                         } else {
                             println("Passwords no coinciden")
                         }

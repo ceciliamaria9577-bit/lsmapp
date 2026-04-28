@@ -22,6 +22,7 @@ import com.wiwiiwiii.lsmapp.ui.auth.AuthChoiceScreen
 import com.wiwiiwiii.lsmapp.ui.auth.LoginScreen
 import com.wiwiiwiii.lsmapp.ui.auth.PersonalizationScreen
 import com.wiwiiwiii.lsmapp.ui.auth.RegisterScreen
+import com.wiwiiwiii.lsmapp.ui.auth.UsernameScreen
 import com.wiwiiwiii.lsmapp.ui.auth.WelcomeScreen
 import com.wiwiiwiii.lsmapp.ui.home.HomeScreen
 import com.wiwiiwiii.lsmapp.ui.library.LibraryScreen
@@ -79,8 +80,6 @@ fun AppNavigation() {
 
             composable("register") { RegisterScreen(navController) }
 
-            composable("personalization") { PersonalizationScreen(navController) }
-
             composable("home") {
                 HomeScreen(
                     navController = navController,
@@ -94,6 +93,15 @@ fun AppNavigation() {
             }
 
             composable("profile") { ProfileScreen(progressViewModel, navController) }
+
+            composable("username") {
+                UsernameScreen(navController)
+            }
+
+            composable("avatar/{username}") { backStackEntry ->
+                val username = backStackEntry.arguments?.getString("username") ?: ""
+                PersonalizationScreen(navController, username)
+            }
 
             composable("lesson/{id}") { backStackEntry ->
 

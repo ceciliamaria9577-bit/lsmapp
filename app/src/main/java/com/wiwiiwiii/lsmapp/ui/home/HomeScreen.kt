@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.LocalContext
 import com.wiwiiwiii.lsmapp.data.fakeData
 import com.wiwiiwiii.lsmapp.data.parseLessons
 import androidx.navigation.NavController
+import com.wiwiiwiii.lsmapp.data.SessionManager
 import com.wiwiiwiii.lsmapp.ui.home.components.SectionBlock
 import com.wiwiiwiii.lsmapp.ui.home.components.TopBar
 import com.wiwiiwiii.lsmapp.ui.viewmodel.ProgressViewModel
@@ -22,12 +23,22 @@ fun HomeScreen(
     val context = LocalContext.current
     val lessons = parseLessons(context).sortedBy { it.order }
 
+    val session = SessionManager(context)
+
     var unlockedLevel by remember { mutableStateOf(1) }
     val secciones = fakeData()
 
     val lessonIds = lessons.map { it.id }
     val nextLessonId = progressViewModel.getNextLessonId(lessonIds)
 
+    LaunchedEffect(Unit) {
+
+        if (session.getToken() == null) {
+            navController.navigate("login") {
+                popUpTo("home") { inclusive = true }
+            }
+        }
+    }
 
     Column {
 

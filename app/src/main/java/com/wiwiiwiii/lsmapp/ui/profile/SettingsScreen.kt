@@ -9,8 +9,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.wiwiiwiii.lsmapp.data.SessionManager
 import com.wiwiiwiii.lsmapp.ui.profile.components.AccountCardItem
 import com.wiwiiwiii.lsmapp.ui.profile.components.CardContainer
 import com.wiwiiwiii.lsmapp.ui.profile.components.SectionTitle
@@ -22,6 +24,9 @@ import com.wiwiiwiii.lsmapp.ui.profile.components.ToggleCardItem
 
 @Composable
 fun SettingsScreen(navController: NavController) {
+
+    val context = LocalContext.current
+    val session = SessionManager(context)
 
     var sonidoExpanded by remember { mutableStateOf(false) }
     var temasExpanded by remember { mutableStateOf(false) }
@@ -89,7 +94,15 @@ fun SettingsScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Button(
-                    onClick = { },
+                    onClick = {
+
+                        session.clearSession()
+
+                        navController.navigate("welcome") {
+                            popUpTo("home") { inclusive = true }
+                        }
+
+                    },
                     shape = RoundedCornerShape(16.dp),
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
