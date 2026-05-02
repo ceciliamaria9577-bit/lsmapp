@@ -6,7 +6,7 @@ import io.ktor.http.*
 class ProfileApi {
 
     private val baseUrl = "https://apjsjxfsadophtajgefp.supabase.co"
-    private val apiKey = "TU_API_KEY_AQUI"
+    private val apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwanNqeGZzYWRvcGh0YWpnZWZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcxNzA4NTEsImV4cCI6MjA5Mjc0Njg1MX0.WxP2DHo5E8u-MS0fnFOKOdAjnMru2jDw0lGayG49Beo"
 
     suspend fun createProfile(
         token: String,

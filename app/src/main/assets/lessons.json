@@ -249,5 +249,71 @@
 
       { "type": "RESULT" }
     ]
+  },
+  {
+    "id": "letras_nd",
+    "order": 6,
+    "title": "Letras N, D",
+    "steps": [
+      { "type": "INTRO", "text": "Aprende las letras N y D" },
+
+      { "type": "LEARN", "title": "N", "image": "n_img", "letters": ["N"] },
+      { "type": "LEARN", "title": "D", "image": "d_img", "letters": ["D"] },
+
+      {
+        "type": "QUIZ",
+        "question": "¿Qué letra es esta?",
+        "image": "n_img",
+        "options": [
+          { "text": "N" },
+          { "text": "D" },
+          { "text": "M" }
+        ],
+        "correct": "N"
+      },
+      {
+        "type": "QUIZ",
+        "question": "¿Qué letra es esta?",
+        "image": "d_img",
+        "options": [
+          { "text": "D" },
+          { "text": "N" },
+          { "text": "O" }
+        ],
+        "correct": "D"
+      },
+
+      {
+        "type": "BUILD_WORD_KEYBOARD",
+        "question": "Escribe la palabra que ves",
+        "media": "mano_img",
+        "letters": ["M","A","N","O","D"],
+        "correct": "MANO"
+      },
+      {
+        "type": "BUILD_WORD_KEYBOARD",
+        "question": "Escribe la palabra que ves",
+        "media": "dado_img",
+        "letters": ["D","A","D","O","N"],
+        "correct": "DADO"
+      },
+      {
+        "type": "BUILD_WORD_KEYBOARD",
+        "question": "Escribe la palabra que ves",
+        "media": "sano_img",
+        "letters": ["S","A","N","O","D"],
+        "correct": "SANO"
+      },
+
+      {
+        "type": "MATCH",
+        "pairs": [
+          { "word": "N", "image": "n_img" },
+          { "word": "D", "image": "d_img" }
+        ]
+      },
+
+      { "type": "RESULT" }
+    ]
   }
 ]

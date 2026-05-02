@@ -1,5 +1,7 @@
 package com.wiwiiwiii.lsmapp.ui.auth
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -119,24 +121,20 @@ fun PersonalizationScreen(
 
         val scope = rememberCoroutineScope()
 
-        LaunchedEffect(navigateNext) {
-            if (navigateNext) {
-                navController.navigate("profile") {
-                    popUpTo("welcome") { inclusive = true }
-                }
-            }
-        }
-
         Button(
             onClick = {
 
                 if (selectedAvatar == null || token == null) return@Button
 
-                loading = true
+                println("ANTES DE COROUTINE")
 
                 scope.launch {
+
+                    println("DENTRO DE COROUTINE")
+
                     try {
                         val userId = AuthApi().getUserId(token)
+                        println("USER ID: $userId")
 
                         ProfileApi().createProfile(
                             token = token,
@@ -145,16 +143,21 @@ fun PersonalizationScreen(
                             avatar = selectedAvatar.toString()
                         )
 
-                        println("ANTES DE CAMBIAR navigateNext")
-                        navigateNext = true
-                        println("DESPUÉS DE CAMBIAR navigateNext: $navigateNext")
+                        println("PROFILE")
+
+                        withContext(Dispatchers.Main) {
+                            println("NAVEGANDO")
+
+                            navController.navigate("profile") {
+                                popUpTo("welcome") { inclusive = true }
+                                launchSingleTop = true
+                            }
+                        }
 
                     } catch (e: Exception) {
                         e.printStackTrace()
-                        loading = false
                     }
                 }
-
             },
             shape = RoundedCornerShape(50),
             modifier = Modifier

@@ -76,11 +76,20 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             _state.value = AuthState.Loading
 
             try {
-                val result = repo.register(email, password)
+                val response = repo.register(email, password)
+
+                val token = response.access_token
+                    ?: throw Exception("No se recibió token en registro")
+
+                session.saveToken(token)
+
+                println("TOKEN GUARDADO REGISTER: $token")
 
                 _state.value = AuthState.Success
 
             } catch (e: Exception) {
+
+                e.printStackTrace()
 
                 _state.value = AuthState.Error(
                     e.message ?: "Error al registrar"

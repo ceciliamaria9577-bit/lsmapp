@@ -15,7 +15,8 @@ fun fakeData(): List<Seccion> {
                     "letras_pl",
                     "letras_ll",
                     "letras_se",
-                    "letras_ti"
+                    "letras_ti",
+                    "letras_nd"
                 )),
                 Tema(2, "Abecedario 2", listOf()),
                 Tema(3, "Pronombres", listOf())
