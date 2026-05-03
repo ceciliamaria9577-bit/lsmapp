@@ -1,7 +1,5 @@
 package com.wiwiiwiii.lsmapp.ui.auth
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -124,16 +122,26 @@ fun PersonalizationScreen(
         Button(
             onClick = {
 
-                if (selectedAvatar == null || token == null) return@Button
+                println("CLICK BOTÓN")
 
-                println("ANTES DE COROUTINE")
+                println("TOKEN: $token")
+                println("AVATAR: $selectedAvatar")
+
+                if (selectedAvatar == null || token == null) {
+                    println("NO PASÓ VALIDACIÓN")
+                    return@Button
+                }
+
+                println("SÍ PASÓ VALIDACIÓN")
+
+                loading = true
 
                 scope.launch {
-
-                    println("DENTRO DE COROUTINE")
+                    println("ENTRÓ A COROUTINE")
 
                     try {
                         val userId = AuthApi().getUserId(token)
+
                         println("USER ID: $userId")
 
                         ProfileApi().createProfile(
@@ -143,19 +151,16 @@ fun PersonalizationScreen(
                             avatar = selectedAvatar.toString()
                         )
 
-                        println("PROFILE")
+                        println("PERFIL GUARDADO OK")
 
-                        withContext(Dispatchers.Main) {
-                            println("NAVEGANDO")
-
-                            navController.navigate("profile") {
-                                popUpTo("welcome") { inclusive = true }
-                                launchSingleTop = true
-                            }
+                        navController.navigate("home") {
+                            popUpTo("welcome") { inclusive = true }
                         }
 
                     } catch (e: Exception) {
+                        println("ERROR REAL: ${e.message}")
                         e.printStackTrace()
+                        loading = false
                     }
                 }
             },

@@ -1,5 +1,6 @@
 package com.wiwiiwiii.lsmapp.data.network
 
+import io.ktor.client.call.body
 import io.ktor.client.request.*
 import io.ktor.http.*
 
@@ -36,6 +37,10 @@ class ProfileApi {
                 )
             )
         }
+
+        val raw = response.body<String>()
+        println("PROFILE RESPONSE: $raw")
+        println("STATUS: ${response.status}")
 
         if (!response.status.isSuccess()) {
             throw Exception("Error al guardar perfil")

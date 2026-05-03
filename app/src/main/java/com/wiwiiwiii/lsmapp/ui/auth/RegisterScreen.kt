@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,6 +30,7 @@ fun RegisterScreen(navController: NavController) {
 
     val viewModel: AuthViewModel = viewModel()
     val state by viewModel.state
+    val context = LocalContext.current
 
     LaunchedEffect(state) {
         if (state is AuthState.Success) {
@@ -139,7 +141,7 @@ fun RegisterScreen(navController: NavController) {
                     onClick = {
 
                         if (password == confirm) {
-                            viewModel.register(email, password)
+                            viewModel.register(email, password, context)
                         } else {
                             println("Passwords no coinciden")
                         }

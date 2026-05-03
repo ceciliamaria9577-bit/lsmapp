@@ -89,5 +89,6 @@ class AuthApi {
 
         // Extrae el id del JSON
         return body.substringAfter("\"id\":\"").substringBefore("\"")
+        println("USER RESPONSE: $body")
     }
 }
